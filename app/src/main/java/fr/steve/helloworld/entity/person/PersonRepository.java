@@ -2,22 +2,14 @@ package fr.steve.helloworld.entity.person;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import fr.steve.helloworld.Repository;
+import fr.steve.helloworld.entity.address.Address;
 
 public class PersonRepository extends Repository<Person> {
 
-    private final List<Person> persons;
-
     public PersonRepository(){
-        this.persons = new ArrayList<>();
-    }
-
-    public List<Person> findAll(){
-        return this.persons;
-    }
-
-    @Override
-    public void add(Person person){
-        this.persons.add(person);
+        super(new ArrayList<>());
     }
 }
