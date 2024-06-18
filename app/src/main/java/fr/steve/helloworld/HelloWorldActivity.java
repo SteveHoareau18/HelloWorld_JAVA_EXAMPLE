@@ -17,14 +17,9 @@ import fr.steve.helloworld.service.adapter.AdapterManager;
 public class HelloWorldActivity extends Activity {
 
     private static EntityManager entityManager;
-    private static AdapterManager adapterManager;
 
     public static EntityManager getEntityManager() {
         return entityManager;
-    }
-
-    public static AdapterManager getAdapterManager() {
-        return adapterManager;
     }
 
     @Override
@@ -33,7 +28,7 @@ public class HelloWorldActivity extends Activity {
         setContentView(R.layout.activity_main);
         Toaster toaster = new Toaster(this);
         entityManager = new EntityManager();
-        adapterManager = new AdapterManager(this, entityManager);
+        AdapterManager adapterManager = new AdapterManager(this, entityManager);
 
         PersonForm loginForm = (PersonForm) new PersonForm(this.findViewById(R.id.inputName),
                 this.findViewById(R.id.inputFirstName),
