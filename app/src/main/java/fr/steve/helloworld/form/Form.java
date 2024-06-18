@@ -2,7 +2,7 @@ package fr.steve.helloworld.form;
 
 import android.widget.Button;
 
-import fr.steve.helloworld.Entity;
+import fr.steve.helloworld.factory.Entity;
 
 public abstract class Form<T extends Entity> {
 

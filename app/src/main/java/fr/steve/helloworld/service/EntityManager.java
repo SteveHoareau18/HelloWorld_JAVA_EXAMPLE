@@ -1,11 +1,11 @@
 package fr.steve.helloworld.service;
 
-import fr.steve.helloworld.Entity;
-import fr.steve.helloworld.Repository;
 import fr.steve.helloworld.entity.address.Address;
 import fr.steve.helloworld.entity.address.AddressRepository;
 import fr.steve.helloworld.entity.person.Person;
 import fr.steve.helloworld.entity.person.PersonRepository;
+import fr.steve.helloworld.factory.Entity;
+import fr.steve.helloworld.factory.Repository;
 
 public class EntityManager {
 

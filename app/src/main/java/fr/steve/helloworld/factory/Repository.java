@@ -1,4 +1,4 @@
-package fr.steve.helloworld;
+package fr.steve.helloworld.factory;
 
 import android.widget.ArrayAdapter;
 

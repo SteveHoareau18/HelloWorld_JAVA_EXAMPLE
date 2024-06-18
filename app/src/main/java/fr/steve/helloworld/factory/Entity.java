@@ -1,4 +1,6 @@
-package fr.steve.helloworld;
+package fr.steve.helloworld.factory;
+
+import fr.steve.helloworld.HelloWorldActivity;
 
 public abstract class Entity {
 

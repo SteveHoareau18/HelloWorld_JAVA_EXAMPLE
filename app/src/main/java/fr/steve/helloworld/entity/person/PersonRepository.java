@@ -2,7 +2,7 @@ package fr.steve.helloworld.entity.person;
 
 import java.util.ArrayList;
 
-import fr.steve.helloworld.Repository;
+import fr.steve.helloworld.factory.Repository;
 
 public class PersonRepository extends Repository<Person> {
 

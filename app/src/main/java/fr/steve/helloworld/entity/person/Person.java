@@ -2,7 +2,7 @@ package fr.steve.helloworld.entity.person;
 
 import androidx.annotation.NonNull;
 
-import fr.steve.helloworld.Entity;
+import fr.steve.helloworld.factory.Entity;
 
 public class Person extends Entity {
 

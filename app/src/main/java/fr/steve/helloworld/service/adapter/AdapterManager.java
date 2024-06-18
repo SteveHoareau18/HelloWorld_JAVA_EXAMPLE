@@ -2,11 +2,11 @@ package fr.steve.helloworld.service.adapter;
 
 import android.app.Activity;
 
-import fr.steve.helloworld.Entity;
 import fr.steve.helloworld.entity.address.Address;
 import fr.steve.helloworld.entity.address.AddressRepository;
 import fr.steve.helloworld.entity.person.Person;
 import fr.steve.helloworld.entity.person.PersonRepository;
+import fr.steve.helloworld.factory.Entity;
 import fr.steve.helloworld.service.EntityManager;
 
 public class AdapterManager {

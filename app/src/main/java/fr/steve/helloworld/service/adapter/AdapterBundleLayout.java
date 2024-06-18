@@ -3,8 +3,8 @@ package fr.steve.helloworld.service.adapter;
 import android.app.Activity;
 import android.widget.ArrayAdapter;
 
-import fr.steve.helloworld.Entity;
-import fr.steve.helloworld.Repository;
+import fr.steve.helloworld.factory.Entity;
+import fr.steve.helloworld.factory.Repository;
 
 public class AdapterBundleLayout<R extends Repository<T>, T extends Entity> {
 
