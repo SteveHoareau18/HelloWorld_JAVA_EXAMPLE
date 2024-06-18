@@ -12,4 +12,8 @@ public abstract class Entity {
     public int getId() {
         return id;
     }
+
+    public Repository<? extends Entity> getRepository() {
+        return HelloWorldActivity.getEntityManager().getRepository(this.getClass());
+    }
 }

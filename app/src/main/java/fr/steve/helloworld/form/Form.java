@@ -2,24 +2,28 @@ package fr.steve.helloworld.form;
 
 import android.widget.Button;
 
-public abstract class Form {
+import fr.steve.helloworld.Entity;
+
+public abstract class Form<T extends Entity> {
 
     private Button submit;
 
-    public Form(){
+    public Form() {
 
     }
 
-    public Form setSubmit(Button button){
+    public Button getSubmit() {
+        return this.submit;
+    }
+
+    public Form<T> setSubmit(Button button) {
         this.submit = button;
         return this;
-    }
-
-    public Button getSubmit(){
-        return this.submit;
     }
 
     public abstract boolean isValid();
 
     abstract void reset();
+
+    abstract T build();
 }
