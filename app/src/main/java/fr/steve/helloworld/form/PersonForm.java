@@ -33,7 +33,7 @@ public class PersonForm extends Form<Person> {
 
     public void setAdapter(ArrayAdapter<Person> arrayAdapter) {
         this.spinner.setAdapter(arrayAdapter);
-        HelloWorldActivity.getEntityManager().getRepository(Person.class).setAdapter(arrayAdapter);
+        HelloWorldActivity.getEntityManager().getRepository(Person.class).ifPresent(repo -> repo.setAdapter(arrayAdapter));
     }
 
     public Person build() {

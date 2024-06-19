@@ -25,25 +25,27 @@ public class HelloWorldActivity extends Activity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_hw);
         Toaster toaster = new Toaster(this);
-        entityManager = new EntityManager();
-        AdapterManager adapterManager = new AdapterManager(this, entityManager);
+        entityManager = new MyEntityManager();
+        AdapterManager adapterManager = new MyAdapterManager(this, entityManager);
 
         PersonForm loginForm = (PersonForm) new PersonForm(this.findViewById(R.id.inputName),
                 this.findViewById(R.id.inputFirstName),
                 this.findViewById(R.id.inputPhone),
                 this.findViewById(R.id.spinner))
                 .setSubmit(this.findViewById(R.id.btnSubmit));
-        ArrayAdapter<Person> adapter = adapterManager.getEntity(Person.class).build();
+        ArrayAdapter<Person> adapter = adapterManager.getEntity(Person.class).get().build();
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         loginForm.setAdapter(adapter);
 
         loginForm.getSubmit().setOnClickListener(v -> {
             if (loginForm.isValid()) {
                 Person person = loginForm.build();
-                entityManager.getRepository(Person.class).add(person);
-                Toast.makeText(this, person.getFirstName() + " a été ajouté dans la liste, il y a " + entityManager.getRepository(Person.class).findAll().size() + " personnes dans la liste", Toast.LENGTH_SHORT).show();
+                entityManager.getRepository(Person.class).ifPresent(repo -> repo.add(person));
+                entityManager.getRepository(Person.class).ifPresent(repo ->
+                        Toast.makeText(this, person.getFirstName() + " a été ajouté dans la liste, il y a " +
+                                repo.findAll().size() + " personnes dans la liste", Toast.LENGTH_SHORT).show());
             } else {
                 toaster.ERROR_LOGIN().show();
             }

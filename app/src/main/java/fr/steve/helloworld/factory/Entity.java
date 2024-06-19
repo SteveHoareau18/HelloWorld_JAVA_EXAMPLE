@@ -1,7 +1,5 @@
 package fr.steve.helloworld.factory;
 
-import fr.steve.helloworld.HelloWorldActivity;
-
 public abstract class Entity {
 
     private static int nextId = 0;
@@ -13,9 +11,5 @@ public abstract class Entity {
 
     public int getId() {
         return id;
-    }
-
-    public Repository<? extends Entity> getRepository() {
-        return HelloWorldActivity.getEntityManager().getRepository(this.getClass());
     }
 }

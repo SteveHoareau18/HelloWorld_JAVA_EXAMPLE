@@ -1,5 +1,7 @@
 package fr.steve.helloworld.service;
 
+import java.util.Optional;
+
 import fr.steve.helloworld.entity.address.Address;
 import fr.steve.helloworld.entity.address.AddressRepository;
 import fr.steve.helloworld.entity.person.Person;
@@ -7,7 +9,7 @@ import fr.steve.helloworld.entity.person.PersonRepository;
 import fr.steve.helloworld.factory.Entity;
 import fr.steve.helloworld.factory.Repository;
 
-public class EntityManager {
+public abstract class EntityManager {
 
     private final PersonRepository personRepository;
     private final AddressRepository addressRepository;
@@ -18,12 +20,12 @@ public class EntityManager {
     }
 
     @SuppressWarnings("unchecked")
-    public <T extends Entity, R extends Repository<T>> R getRepository(Class<T> clazz) {
+    public <T extends Entity, R extends Repository<T>> Optional<R> getRepository(Class<T> clazz) {
         if (clazz == Person.class) {
-            return (R) personRepository;
+            return Optional.of((R) personRepository);
         } else if (clazz == Address.class) {
-            return (R) addressRepository;
+            return Optional.of((R) addressRepository);
         }
-        throw new IllegalArgumentException("Repository for the class " + clazz.getName() + " is not supported.");
+        return Optional.empty();
     }
 }

@@ -25,5 +25,5 @@ public abstract class Form<T extends Entity> {
 
     abstract void reset();
 
-    abstract T build();
+    public abstract T build();
 }

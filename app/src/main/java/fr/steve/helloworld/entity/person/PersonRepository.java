@@ -14,4 +14,9 @@ public class PersonRepository extends Repository<Person> {
     public void add(Person entity) {
         super.add(entity);
     }
+
+    @Override
+    protected Class<Person> getEntityClass() {
+        return Person.class;
+    }
 }

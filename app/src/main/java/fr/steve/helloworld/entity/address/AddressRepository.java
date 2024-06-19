@@ -9,4 +9,9 @@ public class AddressRepository extends Repository<Address> {
     public AddressRepository() {
         super(new ArrayList<>());
     }
+
+    @Override
+    protected Class<Address> getEntityClass() {
+        return Address.class;
+    }
 }
